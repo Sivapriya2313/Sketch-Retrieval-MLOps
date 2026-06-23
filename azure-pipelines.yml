@@ -1,0 +1,16 @@
+trigger:
+  - main
+
+pool:
+  name: Default
+
+steps:
+  - powershell: |
+      Write-Host "🛑 Stopping old containers..."
+      docker compose down
+    displayName: 'Tear Down Existing Environment'
+
+  - powershell: |
+      Write-Host "🚀 Booting new AI engine..."
+      docker compose up -d --build
+    displayName: 'Deploy New Docker Containers'

@@ -7,6 +7,9 @@ services:
     image: sketch-gpu-engine
     ports:
       - "8000:8000"
+    volumes:            # 👇 ADD THIS
+      - .:/app          # 👇 ADD THIS
+    working_dir: /app   # 👇 ADD THIS
     # deploy:
     #   resources:
     #     reservations:
